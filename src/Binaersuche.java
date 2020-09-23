@@ -75,6 +75,8 @@ public class Binaersuche {
         return false;
     }
     public static boolean binaereSuche(int[] zahlen,int spannweite, int suchZahl) {
-        return true;
+        int links=0;
+        int rechts = zahlen.length;
+        int mitte=zahlen.length/2;
     }
 }
