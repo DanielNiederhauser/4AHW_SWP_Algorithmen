@@ -51,6 +51,7 @@ public class Binaersuche {
 
         else {
             System.out.println("Zahl nicht gefunden!");
+            System.exit(0);
         }
 
         System.out.println("Kontrollieren? [j,n]");
@@ -60,12 +61,9 @@ public class Binaersuche {
                 System.out.println(zahlen[i]);
             }
         }
-        System.out.println("Binär: ");
-        if(binaereSuche(zahlen, spannweite,suchZahl)==true){
-            System.out.println("Zahl gefunden");
-        }else {
-            System.out.println("Zahl nicht gefunden");
-        }
+        System.out.print("Binär: ");
+        binaereSuche(zahlen, spannweite,suchZahl);
+
 
 
 
@@ -78,24 +76,27 @@ public class Binaersuche {
         }
         return false;
     }
-    public static boolean binaereSuche(int[] zahlen,int rechts, int suchZahl) {
+    public static void binaereSuche(int[] zahlen,int rechts, int suchZahl) {
         int links=0;
         rechts = zahlen.length;
 
         int mitte;
         do{
             mitte=zahlen.length/2;
-            if(zahlen[mitte]==suchZahl){
-                return true;
+
+             if(suchZahl > zahlen[mitte]){
+                links=mitte+1;
             }
-            else if(suchZahl > zahlen[mitte]){
-                mitte=links;
+             if(suchZahl < zahlen[mitte] ){
+                rechts=mitte-1;
             }
-            else if(suchZahl < zahlen[mitte] ){
-                mitte=rechts;
-            }
-        }while(zahlen[mitte] != suchZahl && links <= rechts);
-        return false;
+        }while(zahlen[mitte] != suchZahl && links <= rechts );
+        if(zahlen[mitte]==suchZahl){
+            System.out.println("Zahl gefunden");
+        }
+        else{
+            System.out.println("Zahl nicht gefunden");
+        }
 
     }
 }
