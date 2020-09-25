@@ -59,8 +59,12 @@ public class Binaersuche {
             for (int i = 0; i < zahlen.length; i++) {
                 System.out.println(zahlen[i]);
             }
-        }else{
-            System.exit(0);
+        }
+        System.out.println("Binär: ");
+        if(binaereSuche(zahlen, spannweite,suchZahl)==true){
+            System.out.println("Zahl gefunden");
+        }else {
+            System.out.println("Zahl nicht gefunden");
         }
 
 
@@ -74,9 +78,24 @@ public class Binaersuche {
         }
         return false;
     }
-    public static boolean binaereSuche(int[] zahlen,int spannweite, int suchZahl) {
+    public static boolean binaereSuche(int[] zahlen,int rechts, int suchZahl) {
         int links=0;
-        int rechts = zahlen.length;
-        int mitte=zahlen.length/2;
+        rechts = zahlen.length;
+
+        int mitte;
+        do{
+            mitte=zahlen.length/2;
+            if(zahlen[mitte]==suchZahl){
+                return true;
+            }
+            else if(suchZahl > zahlen[mitte]){
+                mitte=links;
+            }
+            else if(suchZahl < zahlen[mitte] ){
+                mitte=rechts;
+            }
+        }while(zahlen[mitte] != suchZahl && links <= rechts);
+        return false;
+
     }
 }
