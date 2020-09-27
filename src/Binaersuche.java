@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.Arrays;
 import java.util.*;
 import java.util.Random;
@@ -33,6 +34,7 @@ public class Binaersuche {
                 break;
             default:
                 System.out.println("Falsche Eingabe!");
+                System.exit(0);
                 break;
         }
         System.out.println("Zu suchende Zahl: ");
@@ -43,14 +45,17 @@ public class Binaersuche {
         long startZeitSeq = System.nanoTime();
         ergebnisSequentiell = sequentielleSuche(zahlen, suchZahl);
         long endZeitSeq = System.nanoTime();
-
+        long seqDauer = (endZeitSeq-startZeitSeq);
         if(ergebnisSequentiell==true){
 
-            System.out.println("Zahl " + suchZahl + " in " + (endZeitSeq-startZeitSeq) + " Nanosekunden mithilfe Sequentieller Suche in dem Array gefunden!");
+            System.out.println("Zahl " + suchZahl + " in " + seqDauer + " Nanosekunden mithilfe Sequentieller Suche in dem Array gefunden!");
         }
 
         else {
             System.out.println("Zahl nicht gefunden!");
+            for (int i = 0; i < zahlen.length; i++) {
+                System.out.println(zahlen[i]);
+            }
             System.exit(0);
         }
 
@@ -62,7 +67,24 @@ public class Binaersuche {
             }
         }
         System.out.print("Binär: ");
-        binaereSuche(zahlen, spannweite,suchZahl);
+        long startZeitBinaer = System.nanoTime();
+        boolean binaerGefunden = binaereSuche(zahlen, suchZahl);
+        long endZeitBinaer = System.nanoTime();
+        long binDauer= (endZeitBinaer-startZeitBinaer);
+        if(binaerGefunden){
+            System.out.println("Zahl in "+ binDauer  +" Nanosekunden gefunden!");
+        }
+        else{
+            System.out.println("nicht gefunden");
+        }
+        long prozent = binDauer/seqDauer;
+        System.out.println();
+        System.out.println("Vergleich: ");
+        System.out.print("Sequentielles Verfahren Dauer: " + seqDauer + " Nanosekunden  -  ");
+        System.out.println("Binäres Verfahren Dauer: " + binDauer + " Nanosekunden");
+        System.out.println("Daraus folgt, dass das Binaere Verfahren um " + (seqDauer-binDauer) +
+                " Nanosekunden --> " + (prozent) + " Prozent schneller ist!");
+        System.out.println("Prozent: " + binDauer/seqDauer);
 
 
 
@@ -76,26 +98,26 @@ public class Binaersuche {
         }
         return false;
     }
-    public static void binaereSuche(int[] zahlen,int rechts, int suchZahl) {
+    public static boolean binaereSuche(int[] zahlen, int suchZahl) {
         int links=0;
-        rechts = zahlen.length;
+        int rechts = zahlen.length;
 
         int mitte;
         do{
-            mitte=zahlen.length/2;
+            mitte=(links+rechts)/2;
 
-             if(suchZahl > zahlen[mitte]){
+            if(suchZahl > zahlen[mitte]){
                 links=mitte+1;
             }
-             if(suchZahl < zahlen[mitte] ){
+            if(suchZahl < zahlen[mitte] ){
                 rechts=mitte-1;
             }
         }while(zahlen[mitte] != suchZahl && links <= rechts );
         if(zahlen[mitte]==suchZahl){
-            System.out.println("Zahl gefunden");
+            return true;
         }
         else{
-            System.out.println("Zahl nicht gefunden");
+            return  false;
         }
 
     }
