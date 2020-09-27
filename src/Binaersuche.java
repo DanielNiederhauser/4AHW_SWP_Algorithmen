@@ -11,6 +11,8 @@ public class Binaersuche {
         int spannweite = 100;
         int [] zahlen = new int[spannweite];
         int suchZahl;
+        boolean sequentiellGefunden;
+        boolean binaerGefunden;
         Random rnd = new Random();
         Scanner reader = new Scanner(System.in);
         //Benutzereingabe
@@ -41,12 +43,12 @@ public class Binaersuche {
         suchZahl=reader.nextInt();
 
 
-        boolean ergebnisSequentiell;
+
         long startZeitSeq = System.nanoTime();
-        ergebnisSequentiell = sequentielleSuche(zahlen, suchZahl);
+        sequentiellGefunden = sequentielleSuche(zahlen, suchZahl);
         long endZeitSeq = System.nanoTime();
         long seqDauer = (endZeitSeq-startZeitSeq);
-        if(ergebnisSequentiell==true){
+        if(sequentiellGefunden==true){
 
             System.out.println("Zahl " + suchZahl + " in " + seqDauer + " Nanosekunden mithilfe Sequentieller Suche in dem Array gefunden!");
         }
@@ -66,25 +68,27 @@ public class Binaersuche {
                 System.out.println(zahlen[i]);
             }
         }
-        System.out.print("Binär: ");
+
         long startZeitBinaer = System.nanoTime();
-        boolean binaerGefunden = binaereSuche(zahlen, suchZahl);
+        binaerGefunden = binaereSuche(zahlen, suchZahl);
         long endZeitBinaer = System.nanoTime();
         long binDauer= (endZeitBinaer-startZeitBinaer);
         if(binaerGefunden){
-            System.out.println("Zahl in "+ binDauer  +" Nanosekunden gefunden!");
+            System.out.println("Zahl " + suchZahl + " in " + binDauer + " Nanosekunden mithilfe Binärer Suche in dem Array gefunden!");
         }
         else{
             System.out.println("nicht gefunden");
         }
-        long prozent = binDauer/seqDauer;
+        //Float zu Double, da Berechnung nicht funkt
+        double binDauerDouble = binDauer;
+        double seqDauerDouble = seqDauer;
+        double prozent = Math.round(100*(binDauerDouble/seqDauerDouble));
         System.out.println();
         System.out.println("Vergleich: ");
-        System.out.print("Sequentielles Verfahren Dauer: " + seqDauer + " Nanosekunden  -  ");
+        System.out.print("Sequentielles Verfahren Dauer: " + seqDauer + " Nanosekunden  ,  ");
         System.out.println("Binäres Verfahren Dauer: " + binDauer + " Nanosekunden");
         System.out.println("Daraus folgt, dass das Binaere Verfahren um " + (seqDauer-binDauer) +
-                " Nanosekunden --> " + (prozent) + " Prozent schneller ist!");
-        System.out.println("Prozent: " + binDauer/seqDauer);
+                " Nanosekunden --> " + (100-prozent) + " Prozent schneller ist!");
 
 
 
