@@ -39,6 +39,19 @@ public class Binaersuche {
                 System.exit(0);
                 break;
         }
+        System.out.println("[R]andom Zahl oder [S]elber aussuchen?");
+        switch (reader.nextLine().toUpperCase().charAt(0)){
+            case'R':
+                suchZahl= rnd.nextInt(spannweite+1);
+                break;
+            case 'n':
+                System.out.println("Ihre Zahl: ");
+                suchZahl = reader.nextInt();
+                break;
+                default:
+                    System.out.println("Falsche Eingabe");
+                    System.exit(0);
+        }
         System.out.println("Zu suchende Zahl: ");
         suchZahl=reader.nextInt();
 
@@ -62,6 +75,7 @@ public class Binaersuche {
         }
 
         System.out.println("Kontrollieren? [j,n]");
+
         if(reader.next().toLowerCase().charAt(0)=='j') {
             //Array ausgeben
             for (int i = 0; i < zahlen.length; i++) {
@@ -106,8 +120,8 @@ public class Binaersuche {
         int links=0;
         int rechts = zahlen.length;
 
-        int mitte;
-        do{
+        int mitte=(links+rechts)/2;
+        while(zahlen[mitte] != suchZahl && links <= rechts ){
             mitte=(links+rechts)/2;
 
             if(suchZahl > zahlen[mitte]){
@@ -116,7 +130,7 @@ public class Binaersuche {
             if(suchZahl < zahlen[mitte] ){
                 rechts=mitte-1;
             }
-        }while(zahlen[mitte] != suchZahl && links <= rechts );
+        }
         if(zahlen[mitte]==suchZahl){
             return true;
         }
