@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Binaersuche {
     public static void main(String[] args) {
-
+        System.out.println("Bei Bedarf Spannweite in Zeile 11 ändern");
         //Deklarationen
         int zaehler=1;
         int spannweite = 10000000;
@@ -15,6 +15,7 @@ public class Binaersuche {
         boolean binaerGefunden;
         Random rnd = new Random();
         Scanner reader = new Scanner(System.in);
+
         //Benutzereingabe
         System.out.println("[R]andom zahlen oder [N]ormal");
         switch (reader.nextLine().toUpperCase().charAt(0)){
@@ -48,9 +49,9 @@ public class Binaersuche {
                 System.out.println("Ihre Zahl: ");
                 suchZahl = reader.nextInt();
                 break;
-                default:
-                    System.out.println("Falsche Eingabe");
-                    System.exit(0);
+            default:
+                System.out.println("Falsche Eingabe");
+                System.exit(0);
         }
 
 
@@ -67,15 +68,12 @@ public class Binaersuche {
 
         else {
             System.out.println("Zahl nicht gefunden!");
-            for (int i = 0; i < zahlen.length; i++) {
-                System.out.println(zahlen[i]);
-            }
             System.exit(0);
         }
 
-        System.out.println("Kontrollieren? [j,n]");
+        System.out.println("Kontrollieren? [J,N]");
 
-        if(reader.next().toLowerCase().charAt(0)=='j') {
+        if(reader.next().toLowerCase().charAt(0)=='J') {
             //Array ausgeben
             for (int i = 0; i < zahlen.length; i++) {
                 System.out.println(zahlen[i]);
@@ -95,13 +93,13 @@ public class Binaersuche {
         //Float zu Double, da Berechnung nicht funkt
         double binDauerDouble = binDauer;
         double seqDauerDouble = seqDauer;
-        double prozent = Math.round(spannweite*(binDauerDouble/seqDauerDouble));
+        double wievielSchneller = Math.round(100*(seqDauerDouble/binDauerDouble));
         System.out.println();
         System.out.println("Vergleich: ");
         System.out.print("Sequentielles Verfahren Dauer: " + seqDauer + " Nanosekunden  ,  ");
         System.out.println("Binäres Verfahren Dauer: " + binDauer + " Nanosekunden");
         System.out.println("Daraus folgt, dass das Binaere Verfahren um " + (seqDauer-binDauer) +
-                " Nanosekunden --> " + (prozent) + " Prozent schneller ist!");
+                " Nanosekunden --> " + (wievielSchneller)/100 + " mal schneller ist!");
 
 
 
