@@ -8,7 +8,7 @@ public class Binaersuche {
         System.out.println("Bei Bedarf Spannweite in Zeile 11 ändern");
         //Deklarationen
         int zaehler=1;
-        int spannweite = 10000000;
+        int spannweite = 100000;
         int [] zahlen = new int[spannweite];
         int suchZahl = 0;
         boolean sequentiellGefunden;
