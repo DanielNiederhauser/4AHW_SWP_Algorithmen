@@ -1,3 +1,5 @@
+package Rekursion_Endrekursion;
+
 class Fibonacci {
 
     static int fibRekursiv(int n) {
@@ -23,7 +25,7 @@ class Fibonacci {
 
     public static void main(String args[]) {
         int n = 9;
-        System.out.println(fibRekursiv(n));
-        System.out.println(fibEndrekursiv(9));
+        System.out.println("Rekursiv: " + fibRekursiv(n));
+        System.out.println("Endrekursiv: " + fibEndrekursiv(9));
     }
 } 

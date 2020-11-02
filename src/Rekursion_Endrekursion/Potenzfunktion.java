@@ -1,8 +1,10 @@
+package Rekursion_Endrekursion;
+
 public class Potenzfunktion {
     public static void main(String[] args) {
-        System.out.println(potenzFunktion(4,10));
+        System.out.println(potenzFunktion(2,32));
     }
-    static int potenzFunktion(int z1, int z2){
+    static long potenzFunktion(int z1, int z2){
         if(z2==1){
             return z1;
         }
