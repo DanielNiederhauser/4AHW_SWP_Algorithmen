@@ -1,16 +1,29 @@
-class Fibonacci
-{
+class Fibonacci {
 
-    static int fib(int n)
-    {
-        if (n <= 1)
+    static int fibRekursiv(int n) {
+        if (n <= 1) {
             return n;
-        return fib(n-1) + fib(n-2);
+        } else {
+            return fibRekursiv(n - 1) + fibRekursiv(n - 2);
+        }
     }
 
-    public static void main (String args[])
-    {
+    static int hilfsmethode(int n, int a, int b) {
+        if (n <= 1) {
+            return a + b;
+        } else {
+            return hilfsmethode(n - 1, (a + b), a);
+        }
+    }
+
+    static int fibEndrekursiv(int n) {
+        return hilfsmethode(n - 1, 1, 0);
+    }
+
+
+    public static void main(String args[]) {
         int n = 9;
-        System.out.println(fib(n));
+        System.out.println(fibRekursiv(n));
+        System.out.println(fibEndrekursiv(9));
     }
 } 
