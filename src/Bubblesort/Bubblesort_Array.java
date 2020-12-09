@@ -4,7 +4,9 @@ import java.util.Random;
 
 public class Bubblesort_Array {
 
-    static int spannweite=100;
+    static int spannweite=1000;
+    static int zaehler=0;
+
     public static void main(String[] args) {
         Random rnd = new Random();
         int [] zahlen1 = new int[spannweite];
@@ -29,6 +31,7 @@ public class Bubblesort_Array {
         }
         System.out.println();
         System.out.println("Benötigte Zeit: "+ dauer/1000+" Millekunden");
+        System.out.println("Schritte: " + zaehler);
 
 
     }
@@ -41,6 +44,7 @@ public class Bubblesort_Array {
                     temp = zahlen[j - 1];
                     zahlen[j - 1] = zahlen[j];
                     zahlen[j] = temp;
+                    zaehler++;
                 }
 
             }

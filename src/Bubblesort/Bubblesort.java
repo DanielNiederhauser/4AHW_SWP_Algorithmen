@@ -8,7 +8,7 @@ import java.util.Random;
 public class Bubblesort {
     public static void main(String[] args) {
         Random rnd = new Random();
-        int spannweite = 100;
+        int spannweite = 10;
 
         List<Integer> zahlen1 = new ArrayList<Integer>();
         for(int i = 0; i < spannweite; i++){
