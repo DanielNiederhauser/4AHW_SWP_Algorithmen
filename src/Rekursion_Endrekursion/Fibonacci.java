@@ -1,7 +1,7 @@
 package Rekursion_Endrekursion;
 
 class Fibonacci {
-
+    //Fibonacci als Beispiel für ENDREKURSION
     static int fibRekursiv(int n) {
         if (n <= 1) {
             return n;

@@ -5,6 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+//In diesem Programm wird der Bubblesort-Algorithmus mit einer Liste angewendet
+//Außerdem wird die Dauer der Sortierung berechnet
+//Die zu sortierende Liste ist zufällig befüllt
+//Kurz Prinzip: eine for-Schleife die solange abläuft, wie die Liste Inhalte besitzt
+//Wenn das nächste Element kleiner als das zuvor ist, wird es getauscht. (Da es mit einer Liste geschieht, kann man Collections)
+
 public class Bubblesort {
     public static void main(String[] args) {
         Random rnd = new Random();

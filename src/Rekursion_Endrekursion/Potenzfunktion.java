@@ -1,6 +1,7 @@
 package Rekursion_Endrekursion;
 
 public class Potenzfunktion {
+    //Rekursion Beispiel mit der Potenzfunktion, z1^z2
     public static void main(String[] args) {
         System.out.println(potenzFunktion(2,32));
     }

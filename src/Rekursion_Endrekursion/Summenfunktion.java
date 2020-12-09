@@ -1,6 +1,7 @@
 package Rekursion_Endrekursion;
 
 public class Summenfunktion {
+    //Summenfunktion als Beispiel zur Rekursion einmal Iterativ und einmal Rekursiv
     public static void main(String[] args) {
         System.out.println(summeRekursisv(9));
         System.out.println(summeIterativ(9));

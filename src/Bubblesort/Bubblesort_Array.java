@@ -4,6 +4,13 @@ import java.util.Random;
 
 public class Bubblesort_Array {
 
+
+    //In diesem Programm wird der Bubblesort-Algorithmus mit einem Array angewendet
+    //Außerdem wird die Dauer der Sortierung berechnet
+    //Das zu sortierende Array ist zufällig befüllt
+    //Kurz Prinzip: eine for-Schleife die solange abläuft, wie das Array lang ist
+    //Wenn das nächste Element kleiner als das zuvor ist, wird es getauscht.
+
     static int spannweite=1000;
     static int zaehler=0;
 

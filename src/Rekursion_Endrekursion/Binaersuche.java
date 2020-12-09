@@ -6,6 +6,8 @@ import java.util.*;
 import java.util.Random;
 
 public class Binaersuche {
+    //Binärsuche als Beispiel einmal Sequentiell und einmal binär wobei die Zeit verglichen wird
+    // --> Binär um vielfaches schneller, da weniger Schritte
     public static void main(String[] args) {
         System.out.println("Bei Bedarf Spannweite in Zeile 11 ändern");
         //Deklarationen
